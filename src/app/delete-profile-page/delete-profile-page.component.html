@@ -1,0 +1,17 @@
+<div align="center">
+  <div class="alert alert-{{alerts[alertid].type}} alert-dismissable closed" *ngFor="let alertid of alerts | keys" id='alert{{alertid}}'>
+    <button class="close" aria-label="close" (click)='alerts[alertid].hide()'>&times;</button>
+    <strong>{{ alerts[alertid].title }}</strong> {{ alerts[alertid].message }}
+  </div>
+</div>
+
+<h1>Delete Account</h1>
+<div>
+  Username: <br>
+  <input type="text" Name ="username"><br>
+  Password: <br>
+  <input type="text" name="password"><br>
+  Email:<br>
+  <input type="text" name="email"><br>
+  <button type="button" onclick="alert('Hello World')">Submit</button> <!--Perhaps add in a window that pops up asking are you sure. And some verification such as text and/or email.-->
+</div>

@@ -1,0 +1,121 @@
+<h1 align="center"><u>Registration Form</u></h1><br>
+
+<div align="center">
+  <div class="alert alert-{{alerts[alertid].type}} alert-dismissable closed" *ngFor="let alertid of alerts | keys" id='alert{{alertid}}'>
+    <button class="close" aria-label="close" (click)='alerts[alertid].hide()'>&times;</button>
+    <strong>{{ alerts[alertid].title }}</strong> {{ alerts[alertid].message }}
+  </div>
+</div>
+
+<!-- has-success has-feedback
+<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+<span id="inputSuccess2Status" class="sr-only">(success)</span> -->
+
+<form class="form-horizontal" style="width:75%; margin: 0 auto;">
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="email">Email*</label>
+    <div class="col-sm-9">
+      <input name='email' type="email" class="form-control" placeholder="Email"
+			[(ngModel)]='email' (ngModelChange)="valueChanged('email', $event)">
+    </div>
+    <label class="control-label">{{ isValid['email'] != null ? (isValid['email'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="password">Password*</label>
+    <div class="col-sm-9">
+      <input name='password' type="password" class="form-control" placeholder="Password"
+			[(ngModel)]='password' (ngModelChange)="valueChanged('password', $event)">
+    </div>
+    <label class="control-label">{{ isValid['password'] != null ? (isValid['password'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+	<div class="form-group">
+    <label class="col-sm-2 control-label" for="passwordcom">Confirm Password*</label>
+    <div class="col-sm-9">
+      <input name='confirmpassword' type="password" class="form-control" placeholder="Confirm Password"
+			[(ngModel)]='confirmpassword' (ngModelChange)="valueChanged('confirmpassword', $event)">
+    </div>
+    <label class="control-label">{{ isValid['confirmpassword'] != null ? (isValid['confirmpassword'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+	<div class="form-group">
+    <label class="col-sm-2 control-label" for="name">Name*</label>
+    <div class="col-sm-9">
+      <input name='name' type="text" class="form-control" placeholder="Full Name"
+			[(ngModel)]='name' (ngModelChange)="valueChanged('name', $event)">
+    </div>
+    <label class="control-label">{{ isValid['name'] != null ? (isValid['name'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+	<div class="form-group">
+    <label class="col-sm-2 control-label" for="mobile">Mobile*</label>
+    <div class="col-sm-9">
+      <input name='mobile' type='text' class="form-control" placeholder="07123456789"
+			[(ngModel)]='mobile' (ngModelChange)="valueChanged('mobile', $event)">
+    </div>
+    <label class="control-label">{{ isValid['mobile'] != null ? (isValid['mobile'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+	<div class="form-group">
+    <label class="col-sm-2 control-label" for="address">Address (1)*</label>
+    <div class="col-sm-9">
+      <input name='address' type="text" class="form-control" placeholder="Address (Line 1)"
+			[(ngModel)]='address' (ngModelChange)="valueChanged('address', $event)">
+    </div>
+    <label class="control-label">{{ isValid['address'] != null ? (isValid['address'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+	<div class="form-group">
+    <label class="col-sm-2 control-label" for="address2">Address (2)</label>
+    <div class="col-sm-9">
+      <input name='address2' type="text" class="form-control" placeholder="Address (Line 2)"
+			[(ngModel)]='address2' (ngModelChange)="valueChanged('address2', $event)">
+    </div>
+    <label class="control-label">{{ isValid['address2'] != null ? (isValid['address2'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+	<div class="form-group">
+    <label class="col-sm-2 control-label" for="address3">Address (3)</label>
+    <div class="col-sm-9">
+      <input name='address3' type="text" class="form-control" placeholder="Address (Line 3)"
+			[(ngModel)]='address3' (ngModelChange)="valueChanged('address3', $event)">
+    </div>
+    <label class="control-label">{{ isValid['address3'] != null ? (isValid['address3'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+	<div class="form-group">
+    <label class="col-sm-2 control-label" for="postcode">Postcode*</label>
+    <div class="col-sm-9">
+      <input name='postcode' type="text" class="form-control" placeholder="AB12 C3D"
+			[(ngModel)]='postcode' (ngModelChange)="valueChanged('postcode', $event)">
+    </div>
+    <label class="control-label">{{ isValid['postcode'] != null ? (isValid['postcode'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+	<div class="form-group">
+    <label class="col-sm-2 control-label" for="birthday">DoB*</label>
+    <div class="col-sm-9">
+      <input name='birthday' type="date" class="form-control"
+			[(ngModel)]='birthday' (ngModelChange)="valueChanged('birthday', $event)">
+    </div>
+    <label class="control-label">{{ isValid['birthday'] != null ? (isValid['birthday'] ? '&#10004;' : '&#10006;') : '' }}</label>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Nearest Sage Location*</label>
+		<div class="col-sm-9">
+			<select name='sagelocation' [(ngModel)]='sagelocation' class="form-control" (ngModelChange)="valueChanged('sagelocation', $event)">
+				<option *ngFor='let location of locations | keys' [ngValue]='location'>{{ this.locations[location] }}</option>
+			</select>
+		</div>
+    <label class="control-label">{{ isValid['sagelocation'] != null ? (isValid['sagelocation'] ? '&#10004;' : '&#10006;') : '' }}</label>
+	</div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+			<button type="button" class="btn btn-success btn-xsh" (click)="register()">Register</button>
+			<button type="button" class="btn btn-primary btn-xsh" (click)="backtoLoginPage()">Login Page</button>
+    </div>
+  </div>
+</form>

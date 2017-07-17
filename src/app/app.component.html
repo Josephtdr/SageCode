@@ -1,0 +1,45 @@
+<script>
+ window.fbAsyncInit = function() {
+   FB.init({
+     appId      : '710003262533858',
+     xfbml      : true,
+     version    : 'v2.9'
+   });
+   FB.AppEvents.logPageView();
+ };
+
+ (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Responsive navigation bar  -->
+<div class="topnav" id="myTopnav">
+  <a class="btn btn-social-icon btn-facebook" target="_blank" href="https://www.facebook.com/SageUK/">
+    <span class="fa fa-facebook"></span>
+  </a>
+
+  <a class="btn btn-social-icon btn-twitter" target="_blank" href="https://twitter.com/sageuk">
+    <span class="fa fa-twitter"></span>
+  </a>
+
+  <a class="btn btn-social-icon btn-instagram" target="_blank" href="https://www.instagram.com/sageofficial/?hl=en">
+    <span class="fa fa-instagram"></span>
+  </a>
+
+  <a class="btn btn-social-icon btn-linkedin" target="_blank" href="https://uk.linkedin.com/company/sage-software">
+  <span class="fa fa-linkedin"></span>
+  </a>
+
+
+  <button class="btn btn-danger"(click)="logout()" #logoutbutton style="display:none">Log out</button>
+  <button #adminpagebutton class="btn btn-success" (click)="toAdminPage()" style="display:none">Admin</button>
+  <button class="btn btn-warning" (click)="toProfile()" #viewprofilebutton style="display:none">Profile</button>
+  <button class="btn btn-primary" (click)="toHomePage()" #viewhomebutton style="display:none">Home</button>
+</div>
+<br>
+<router-outlet></router-outlet>

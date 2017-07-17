@@ -1,0 +1,11 @@
+div{
+  background-color: lightgrey;
+  width: 300px;
+  border:20px solid black;
+  padding: 25px;
+  margin:25;
+}
+h1 {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: Green;
+}

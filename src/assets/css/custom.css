@@ -1,0 +1,44 @@
+legend {
+  display: inline;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  font-size: medium;
+  line-height: normal;
+  color: #000000;
+  border: 0;
+  border-bottom: none;
+}
+
+.closed {
+   display: none;
+}
+
+table {
+  background-color: white;
+}
+
+.colour {
+  background-color: #F9F9FF;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: left;
+    padding: 14px 17px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav button {
+  float: right;
+}

@@ -1,0 +1,82 @@
+<div align="center">
+  <div class="alert alert-{{alerts[alertid].type}} alert-dismissable closed" *ngFor="let alertid of alerts | keys" id='alert{{alertid}}'>
+    <button class="close" aria-label="close" (click)='alerts[alertid].hide()'>&times;</button>
+    <strong>{{ alerts[alertid].title }}</strong> {{ alerts[alertid].message }}
+  </div>
+</div>
+
+<div align='center' *ngIf="user"><h1>Details for <b>{{ user.name ? user.name : user.email }}</b></h1></div><br>
+
+<div class="row">
+  <div class="col-md-4" align="center"> <!-- Account Details -->
+    <h2><b><u>Account Details</u></b></h2>
+    <div>
+      <label for="name">Name</label>
+      <div *ngIf="user">
+        {{ user.name }}
+      </div>
+    </div>
+    <div>
+      <label for="phone">Phone</label>
+      <div *ngIf="user">
+        {{ user.phone }}
+      </div>
+    </div>
+    <div>
+      <label for="address" id ="addresslabel">Address (Line 1)</label>
+      <div *ngIf="user">
+        {{ user.address }}
+      </div>
+    </div>
+    <div>
+      <label for="address2" id="address2label" *ngIf="user && user.address2">Address (Line 2)</label>
+      <div *ngIf="user">
+        {{ user.address2 }}
+      </div>
+    </div>
+    <div>
+      <label for="address3" id="address3label" *ngIf="user && user.address3">Address (Line 3)</label>
+      <div *ngIf="user">
+        {{ user.address3 }}
+      </div>
+    </div>
+    <div>
+      <label for="postcode">Postcode / Zip</label>
+      <div *ngIf="user">
+        {{ user.postcode }}
+      </div>
+    </div>
+    <div>
+      <label for="birthday">DoB</label>
+      <div *ngIf="user">
+        {{ user.birthday }}
+      </div>
+    </div>
+    <div>
+      <label for="sagelocation">Sage Location </label>
+      <div *ngIf="user && locations">
+        {{ locations[user.sagelocation] }}
+      </div>
+    </div>
+    <br><br><button class="btn btn-warning" (click)="toEditDetails()">Edit Details</button>
+  </div>
+
+  <div class="col-md-4" align = "center"> <!-- Workshop -->
+    <h2><b><u>Workshop</u></b></h2>
+    <div *ngFor="let workshop of workshops">
+      <label for="Title:" style="font-weight: normal;"><strong>{{ workshop.title }}</strong>:</label><br>
+      <label for="Description:" style="font-weight: normal;">{{ workshop.description }}</label>
+    </div>
+    <br><br><button class="btn btn-warning" (click)="toEditWorkshopsPage()">Edit Workshops</button>
+  </div>
+
+  <div class="col-md-4" align = "center"> <!-- Skills -->
+    <h2><b><u>Skills</u></b></h2>
+    <div *ngFor="let skill of skills">
+        <label for="Skill:" style="font-weight: normal;"><strong>{{ skill.skill }}</strong>:</label>
+        <label for="Percentage:" style="font-weight: normal;">{{ skill.percentage }}%</label>
+        <br>
+    </div>
+    <br><br><button class="btn btn-warning" (click)="toEditSkillsPage()">Edit Skills</button>
+  </div>
+</div>
